@@ -14,11 +14,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class WebTest {
-    private static Faker faker;
 
     @Test
     void shouldTestV1() {
-        Configuration.holdBrowserOpen = false;
+        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
         RegistrationInfo info = DataGenerator.Registration.generationInfo("ru");
         String date = DateDay.NewDatePlusFormat(4, "dd.MM.yyyy");

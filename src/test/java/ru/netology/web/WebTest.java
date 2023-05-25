@@ -16,7 +16,7 @@ public class WebTest {
     void shouldTestV1() {
         open("http://localhost:9999");
         RegistrationInfo info = DataGenerator.Registration.generationInfo("ru");
-        String date = DataGenerator.NewDate.newDatePlusFormat(4, "dd.MM.yyyy");
+        String date = DataGenerator.newDatePlusFormat(4, "dd.MM.yyyy");
         $("[data-test-id=city] input").setValue(info.getCity());
         $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue(info.getName());
@@ -30,7 +30,7 @@ public class WebTest {
     void shouldTestV2() {
         open("http://localhost:9999");
         RegistrationInfo info = DataGenerator.Registration.generationInfo("ru");
-        String date = DataGenerator.NewDate.newDatePlusFormat(4, "dd.MM.yyyy");
+        String date = DataGenerator.newDatePlusFormat(4, "dd.MM.yyyy");
         $("[data-test-id=city] input").setValue(info.getCity().substring(0, 3));
         $x("//*[contains(text(),'" + info.getCity() + "')]").click();
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_RIGHT, Keys.ENTER);
@@ -45,7 +45,7 @@ public class WebTest {
     void shouldTestV3() {
         open("http://localhost:9999");
         RegistrationInfo info = DataGenerator.Registration.generationInfo("ru");
-        String date = DataGenerator.NewDate.newDatePlusFormat(4, "dd.MM.yyyy");
+        String date = DataGenerator.newDatePlusFormat(4, "dd.MM.yyyy");
         $("[data-test-id=city] input").setValue(info.getCity().substring(0, 3));
         $x("//*[contains(text(),'" + info.getCity() + "')]").click();
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_RIGHT, Keys.ENTER);
@@ -55,7 +55,7 @@ public class WebTest {
         $(".button").click();
         $("[data-test-id=success-notification] .notification__content").shouldHave(Condition.text("Встреча успешно запланирована на " + date));
         refresh();
-        String newDate = DataGenerator.NewDate.newDatePlusFormat(5, "dd.MM.yyyy");
+        String newDate = DataGenerator.newDatePlusFormat(5, "dd.MM.yyyy");
         $("[data-test-id=city] input").setValue(info.getCity().substring(0, 3));
         $x("//*[contains(text(),'" + info.getCity() + "')]").click();
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_RIGHT, Keys.ARROW_RIGHT, Keys.ENTER);

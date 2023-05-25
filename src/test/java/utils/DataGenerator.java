@@ -19,10 +19,7 @@ public class DataGenerator {
         }
     }
 
-    @UtilityClass
-    public static class NewDate {
-        public static String newDatePlusFormat(int plusDay, String dateFormat) {
-            return LocalDate.now().plusDays(plusDay).format(DateTimeFormatter.ofPattern(dateFormat));
-        }
+    public static String newDatePlusFormat(int plusDay, String dateFormat) {
+        return LocalDate.now().plusDays(plusDay).format(DateTimeFormatter.ofPattern(dateFormat));
     }
 }
